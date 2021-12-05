@@ -72,6 +72,7 @@ public class AddBook extends HttpServlet {
 			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 		       conn = DriverManager.getConnection(url,user,pass);
 		       String sql = "INSERT INTO books (id,BN,title,autho,category,img) values(?,?,?,?,?,?)";
+		       
 	            PreparedStatement statement = conn.prepareStatement(sql);
 	            statement.setString(1, null);
 	            statement.setString(2, name);

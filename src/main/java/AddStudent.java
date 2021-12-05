@@ -1,5 +1,8 @@
 
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -47,7 +50,7 @@ public class AddStudent extends HttpServlet {
 		bdc.loadDriver(dbDriver);
 		Connection con =bdc.getConnection();
 		String sql = "INSERT INTO students(id,studentid,full_name,email,tel) VALUES(?,?,?,?,?)";
-		
+		String data = "\n"+names+" "+" "+regn+" "+email+" "+tel+""+"\n";
 		String message ="Student Added Well";
 		
 		try {
@@ -60,12 +63,15 @@ public class AddStudent extends HttpServlet {
 //			ps.setString(6, null);
 //			ps.setString(7, null);
 			ps.execute();
+			AddToFile obj = new AddToFile();
+			obj.data(data);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			message=e.toString();
 			e.printStackTrace();
 		}
 		
+        
 		request.setAttribute("message", message);
 		RequestDispatcher rd = request.getRequestDispatcher("AddStudent.jsp");
 		rd.forward(request, response);
