@@ -74,7 +74,7 @@
                                         <a class="small" href="forgot-password.jsp">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="Register.jsp">Create an Account!</a>
+<!--                                         <a class="small" href="Register.jsp">Create an Account!</a> -->
                                     </div>
                                 </div>
                             </div>
